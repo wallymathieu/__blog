@@ -1,2 +1,5 @@
-# __blog
-nothing to see there
+---
+author: Me
+title: Readme
+---
+this is a test
