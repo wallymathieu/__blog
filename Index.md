@@ -54,11 +54,11 @@ You can use it to emulate some sort of tag, like for example having an `OCaml` d
 The file syntax is just plain markdown, everything should be supported out-the-box (depending on the `ocaml-cow` markdown implementation), with a little bit of extra informations absolutely needed at the top of each files.
 
 ```
----
+--
 title: A blog entry
 author: Me
 abstract: A simple line telling what this article is all about, will be displayed in listing pages. (optional)
----
+--
 article content
 ```
 
