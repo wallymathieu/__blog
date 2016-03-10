@@ -1,15 +1,45 @@
 ---
-title: Unikernel blog
-author: me
+title: Canopy - A git-blogging unikernel
+author: Enguerrand Decorne
 ---
 
-# Canopy - A git-blogging unikernellll
+# Canopy - A git-blogging unikernel 🌿
 
 Canopy is an attempt at writting a blog-engine based on Git using [MirageOS][mirage].
 
 The goal is to provide a simple blog platform that requires only a few modifications in a configuration file and a Git repository respecting some architecture rules.
 
 Canopy is written in OCaml using MirageOS and [Irmin][irmin], but it is currently only available on the Unix platform. The Xen platform will be supported as soon as [Decompress][decompress] is ready to be used in Irmin. :-)
+
+## Getting started
+
+You will need the latest version of `OCaml`, `opam` and `mirage` before starting. To setup a mirage environment, please refer to the mirage website.
+You'll also need `bower` and `less-css` if you want to compile and retrieve everything related to the blog-styling (not needed to just test things out).
+
+Checkout Canopy repository, then go inside:
+
+```sh
+# Get js/css dependencies and compile Less files
+./style.sh
+# Configure the mirage application
+mirage configure --unix
+# Compile Canopy
+make
+```
+
+Then you'll be able to launch Canopy using `./mir-canopy`, that will launch a server listening on port `8080` by default.
+
+To configure how your Canopy instance should behave, you can edit `canopy_config.ml` before running `make`.
+
+```ocaml
+
+let config = {
+  remote_uri = "https://github.com/Engil/__blog.git"; (* the git repository *)
+  index_page = "Index.md"; (* the file that will serve as an index page *)
+  port = 8080; (* listening port *)
+  push_hook_path = "push"; (* set this to a random string that will be used to inform that new content is available in the git repository *)
+}
+```
 
 ## How Canopy works
 
@@ -24,10 +54,11 @@ You can use it to emulate some sort of tag, like for example having an `OCaml` d
 The file syntax is just plain markdown, everything should be supported out-the-box (depending on the `ocaml-cow` markdown implementation), with a little bit of extra informations absolutely needed at the top of each files.
 
 ```
---
+---
 title: A blog entry
 author: Me
---
+abstract: A simple line telling what this article is all about, will be displayed in listing pages. (optional)
+---
 article content
 ```
 
@@ -36,5 +67,3 @@ If you don't respect this syntax, then the article won't show up in the resultin
  [decompress]: <https://github.com/oklm-wsh/Decompress>
  [mirage]: <http://mirage.io/>
  [irmin]: <https://github.com/mirage/irmin>
- 
- Work in progress
