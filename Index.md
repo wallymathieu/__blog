@@ -3,7 +3,7 @@ title: Unikernel blog
 author: me
 ---
 
-# Canopy - A git-blogging unikernel
+# Canop - A git-blogging unikernel
 
 Canopy is an attempt at writting a blog-engine based on Git using [MirageOS][mirage].
 
