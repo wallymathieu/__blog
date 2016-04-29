@@ -5,7 +5,7 @@ author: Engil
 
 # Canopy - A git-blogging unikernel 🌿
 
-Canopy is an attempt at writting a blog-engine based on Git using [MirageOS][mirage].
+Canopy is an attempt at writting a blog engine based on Git using [MirageOS][mirage].
 
 The goal is to provide a simple blog platform that requires only a few modifications in a configuration file and a Git repository respecting some architecture rules.
 
