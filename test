@@ -2,7 +2,7 @@
 title: test
 author: test
 ---
-<div class= "lol">
+<span class= "lol">
 <p>lama</p>
-</div>
+</span>
 test
