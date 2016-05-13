@@ -3,9 +3,6 @@ title: test
 author: test
 ---
 <div class= "lol">
-lama
-lama
-lama
-lama
+<p>lama</p>
 </div>
 test
